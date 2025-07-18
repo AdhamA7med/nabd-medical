@@ -4,14 +4,54 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const Index = () => {
   const services = [
-    { name: "عيادة النساء والتوليد", icon: Heart },
-    { name: "عيادة المخ والأعصاب", icon: Users },
-    { name: "معمل التحاليل الطبية", icon: CheckCircle },
-    { name: "عيادة العظام", icon: Award },
-    { name: "عيادة الأسنان", icon: Star },
-    { name: "عيادة الرمد", icon: Heart },
-    { name: "عيادة الباطنة", icon: Users },
-    { name: "عيادة الجراحة العامة", icon: Award }
+    { 
+      name: "عيادة النساء والتوليد", 
+      icon: Heart,
+      description: "رعاية شاملة للمرأة خلال الحمل والولادة مع متابعة صحة الجنين",
+      features: ["متابعة الحمل", "الولادة الطبيعية والقيصرية", "أمراض النساء", "تخطيط الأسرة"]
+    },
+    { 
+      name: "عيادة المخ والأعصاب", 
+      icon: Users,
+      description: "تشخيص وعلاج أمراض الجهاز العصبي والدماغ بأحدث الطرق",
+      features: ["الصداع المزمن", "الصرع", "أمراض الأعصاب الطرفية", "اضطرابات الذاكرة"]
+    },
+    { 
+      name: "معمل التحاليل الطبية", 
+      icon: CheckCircle,
+      description: "نتائج دقيقة وسريعة لجميع أنواع التحاليل الطبية والهرمونية",
+      features: ["تحاليل الدم الشاملة", "تحاليل الهرمونات", "تحاليل البول والبراز", "نتائج خلال ساعات"]
+    },
+    { 
+      name: "عيادة العظام", 
+      icon: Award,
+      description: "علاج إصابات وأمراض العظام والمفاصل والعمود الفقري",
+      features: ["إصابات الرياضة", "آلام المفاصل", "العمود الفقري", "العلاج الطبيعي"]
+    },
+    { 
+      name: "عيادة الأسنان", 
+      icon: Star,
+      description: "خدمات طب الأسنان التجميلية والعلاجية بأحدث التقنيات",
+      features: ["تنظيف الأسنان", "حشو وعلاج الجذور", "تقويم الأسنان", "زراعة الأسنان"]
+    },
+    { 
+      name: "عيادة الرمد", 
+      icon: Heart,
+      description: "فحص وعلاج أمراض العيون وتصحيح مشاكل الإبصار",
+      features: ["فحص قاع العين", "علاج المياه البيضاء", "قياس النظر", "عمليات الليزر"]
+    },
+    { 
+      name: "عيادة الباطنة", 
+      icon: Users,
+      description: "تشخيص وعلاج الأمراض الداخلية والمزمنة بشكل شامل",
+      features: ["أمراض السكري", "ضغط الدم", "أمراض القلب", "الجهاز الهضمي"]
+    },
+    { 
+      name: "عيادة الجراحة العامة", 
+      icon: Award,
+      description: "عمليات جراحية متقدمة بأحدث التقنيات والمعدات الطبية",
+      features: ["جراحة البطن", "عمليات المناظير", "الجراحة التجميلية", "إزالة الأورام"]
+    }
   ];
 
   const testimonials = [
@@ -105,12 +145,38 @@ const Index = () => {
               نوفر لك جميع التخصصات الطبية في مكان واحد لراحتك وسلامتك
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="p-6 text-center">
-                  <service.icon className="mx-auto mb-4 text-primary" size={40} />
-                  <h3 className="font-semibold text-lg">{service.name}</h3>
+              <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+                <CardContent className="p-8">
+                  <div className="text-center mb-6">
+                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                      <service.icon size={32} className="text-primary group-hover:text-white transition-colors duration-300" />
+                    </div>
+                    <h3 className="font-bold text-xl mb-3 text-primary">{service.name}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <h4 className="font-semibold text-sm text-foreground mb-3 flex items-center gap-2">
+                      <CheckCircle size={16} className="text-accent" />
+                      الخدمات المقدمة:
+                    </h4>
+                    <ul className="space-y-2">
+                      {service.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-start gap-3 text-sm">
+                          <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                          <span className="text-muted-foreground">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <div className="mt-6 pt-4 border-t border-muted">
+                    <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                      احجز موعد
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             ))}
