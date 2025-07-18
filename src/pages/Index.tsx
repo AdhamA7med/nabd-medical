@@ -1,4 +1,4 @@
-import { Heart, Phone, MapPin, Clock, Users, Award, CheckCircle, Star, MessageSquare, PhoneCall } from "lucide-react";
+import { Heart, Phone, MapPin, Clock, Users, Award, CheckCircle, Star, MessageSquare, PhoneCall, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -222,8 +222,21 @@ const Index = () => {
               </div>
             </div>
             <div className="text-center">
-              <div className="bg-primary/10 rounded-full w-80 h-80 mx-auto flex items-center justify-center">
-                <Heart className="text-primary" size={120} />
+              <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl p-8">
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="text-center">
+                    <div className="bg-primary/20 rounded-full w-16 h-16 mx-auto flex items-center justify-center mb-3">
+                      <Clock className="text-primary" size={32} />
+                    </div>
+                    <h4 className="font-semibold text-foreground">متاح 24/7</h4>
+                  </div>
+                  <div className="text-center">
+                    <div className="bg-accent/20 rounded-full w-16 h-16 mx-auto flex items-center justify-center mb-3">
+                      <Shield className="text-accent" size={32} />
+                    </div>
+                    <h4 className="font-semibold text-foreground">أمان وجودة</h4>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
